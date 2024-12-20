@@ -89,6 +89,10 @@ a {
     background-color:#EAF2FD;
 }
 
+.sobre-mi__firma{
+    width: 30%;
+    height: 20%;
+}
 /*------------------------------ Sección de Habilidades ------------------------------*/
 
 .habilidades__titulo{
@@ -147,7 +151,7 @@ padding: 25px 0px 0px 10px;
 width: 200px;
 }
 
-/*------------------------------ Sección de Proyectos --------------------------------*/
+/*------------------------------ Formación académica --------------------------------*/
 .formacion{
     background-color:#EAF2FD ;
 }
@@ -167,17 +171,177 @@ text-align: left;
     margin-top: 6.25rem;
 }
 
-.formacion__icono{ 
-    height: 350px;
-    width: 100%;
+.formacion__icono { 
+    width: 300px; /* Ancho deseado */
+    height: 200px; /* Alto deseado */
+    border: 1px solid #ccc; /* Opcional: bordes para visualizar mejor */ 
+    flex: 1;
 }
+
+
  ul.formacion__lista{
     padding: 0px 30px 0px 30px;
  }
 
+ .formacion__icono__experiencia{
+    width: 100%; /* Ancho deseado */
+    height: auto; /* Alto deseado */
+    border: 1px solid #ccc; /* Opcional: bordes para visualizar mejor */ 
+    flex: 1;
+ }
+ 
+
+/*------------------------------ Sección de Proyectos --------------------------------*/
+.proyectos__contenedor__experiencia{ 
+    margin: 30px;
+    
+}
+
+.proyectos__nombre{
+    display: flex;
+    justify-content: center;
+    animation: focus-in-contract-bck 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes focus-in-contract-bck {
+    0% {
+      letter-spacing: 1em;
+      transform: translateZ(300px);
+      filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateZ(12px);
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+
 /*------------------------------ Sección de Contacto ---------------------------------*/
+/* General styles for the contact form */
+.contacto {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.container__contacto {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-wrapper h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form-wrapper p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Styles for input fields */
+.caja-contacto input[type="text"],
+.caja-contacto input[type="email"],
+.caja-contacto .mensaje {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Styles for the "mensaje" field */
+.caja-contacto .mensaje {
+    height: 100px;
+    resize: none; /* Prevent resizing */
+}
+
+/* Hover effect for input fields */
+.caja-contacto input[type="text"]:hover,
+.caja-contacto input[type="email"]:hover,
+.caja-contacto .mensaje:hover {
+    border-color: #007BFF;
+}
+
+.caja-contacto input[type="text"]:focus,
+.caja-contacto input[type="email"]:focus,
+.caja-contacto .mensaje:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+/* Hover animation for underline effect */
+.caja-contacto input[type="text"],
+.caja-contacto input[type="email"],
+.caja-contacto .mensaje {
+    position: relative;
+    background: transparent;
+}
+
+.caja-contacto input[type="text"]:hover::after,
+.caja-contacto input[type="email"]:hover::after,
+.caja-contacto .mensaje:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #007BFF;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+}
+
+.caja-contacto input[type="text"]:focus::after,
+.caja-contacto input[type="email"]:focus::after,
+.caja-contacto .mensaje:focus::after {
+    transform: scaleX(1);
+}
+
+/* Styles for the submit button */
+.caja-contacto input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.caja-contacto input[type="submit"]:hover {
+    background-color: #0056b3;
+}
 
 
+.telefono__contacto{
+    width: 50px;
+    display: none;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
 /* ------------------------------ Responsividad ---------------------------------------*/
 
 /* Tablets y pantallas más grandes */
@@ -229,6 +393,11 @@ text-align: left;
             border-radius: 30%; /* Hace la imagen circular */
             object-fit: cover; /* Ajusta la imagen para que encaje bien en el círculo */
     }
+
+    .sobre-mi__firma{
+        width: 15%;
+        height: 20%;
+    }
     
     .redes{
         display: flex;
@@ -236,13 +405,18 @@ text-align: left;
         padding: 0px;
         gap: 20px;
     }
-
+    /*Sección de Habilidades*/
     .habilidades ul{
         display: flex;
         justify-content: space-around;
         align-self: center;
         flex-wrap: wrap;
         gap: 70px;
+    }
+    /*Sección de Contacto*/
+    .telefono__contacto{
+        width: 50px;
+        display: block;
     }
 
     .aficiones ul{
@@ -252,11 +426,7 @@ text-align: left;
         flex-wrap: wrap;
         gap: 70px;
     }
-
-    .formacion__icono{ 
-        height: 350px;
-        width: 300px;
-    }
+    /*Sección de Formación académica */
 
     .formacion__lista{
         display: flex;
@@ -264,6 +434,25 @@ text-align: left;
         gap: 20px;
     }
 
+    /*Sección de Proyectos*/
+    .formacion__icono__experiencia{ 
+        width: 80%; /* Ancho deseado */
+        height: auto; /* Alto deseado */
+        border: 1px solid #ccc; /* Opcional: bordes para visualizar mejor */ 
+    }
+
+    .proyectos__contenedor__experiencia{
+        text-align: center;
+    }
+
+    .formacion__icono{
+        width: 100%; /* Ancho deseado */
+    }
+
+    /* Sección de Contacto */
+    .telefono__contacto{
+        display: none;
+    }
 
 }
 
@@ -272,6 +461,11 @@ text-align: left;
     /* Aquí puedes ajustar aún más el diseño para pantallas grandes */
     .cabecera__titulo {
         font-size: 1.8rem;
+    }
+
+    .sobre-mi__firma{
+        width: 15%;
+        height: 20%;
     }
 
     .navegacion__elemento:nth-child(-n+6){
@@ -283,6 +477,7 @@ text-align: left;
         font-size: 1.1rem;
     }
 
+
     .habilidades ul{
         display: flex;
         justify-content: space-around;
@@ -300,8 +495,8 @@ text-align: left;
     }
 
     .formacion__icono{ 
-        height: 350px;
-        width: 450px;
+        height: 250px;
+        width: 350px;
     }
 
     .formacion__lista{
@@ -309,4 +504,15 @@ text-align: left;
         justify-content: space-between;
         gap: 20px;
     }
+
+    .formacion__icono__experiencia{ 
+        width: 35%; /* Ancho deseado */
+        height: auto; /* Alto deseado */
+        border: 1px solid #ccc; /* Opcional: bordes para visualizar mejor */ 
+    }
+
+    .proyectos__contenedor__experiencia{
+        text-align: center;
+    }
+
 }
